@@ -1,0 +1,275 @@
+#ifndef ENVIROMENTSTATUS_DCPS_IDL_
+#define ENVIROMENTSTATUS_DCPS_IDL_
+
+#include "dds_dcps.idl"
+
+#include "EnviromentStatus_.idl"
+
+module ssafy_msgs {
+
+    module msg {
+
+        module dds_ {
+
+            typedef sequence<EnviromentStatus_> EnviromentStatus_Seq;
+
+            local interface EnviromentStatus_TypeSupportInterface : ::DDS::TypeSupport { };
+
+            local interface EnviromentStatus_DataWriter : ::DDS::DataWriter {
+                ::DDS::InstanceHandle_t register_instance(
+                  in EnviromentStatus_ instance_data);
+
+                ::DDS::InstanceHandle_t register_instance_w_timestamp(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::Time_t source_timestamp);
+
+                ::DDS::ReturnCode_t unregister_instance(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::ReturnCode_t unregister_instance_w_timestamp(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle,
+                  in ::DDS::Time_t source_timestamp);
+
+                ::DDS::ReturnCode_t write(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::ReturnCode_t write_w_timestamp(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle,
+                  in ::DDS::Time_t source_timestamp);
+
+                ::DDS::ReturnCode_t dispose(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::ReturnCode_t dispose_w_timestamp(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle,
+                  in ::DDS::Time_t source_timestamp);
+
+                ::DDS::ReturnCode_t writedispose(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::ReturnCode_t writedispose_w_timestamp(
+                  in EnviromentStatus_ instance_data,
+                  in ::DDS::InstanceHandle_t handle,
+                  in ::DDS::Time_t source_timestamp);
+
+                ::DDS::ReturnCode_t get_key_value(
+                  inout EnviromentStatus_ key_holder,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::InstanceHandle_t lookup_instance(
+                  in EnviromentStatus_ instance_data);
+
+            };
+
+            local interface EnviromentStatus_DataReader : ::DDS::DataReader {
+                ::DDS::ReturnCode_t read(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t take_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t read_next_sample(
+                  inout EnviromentStatus_ received_data,
+                  inout ::DDS::SampleInfo sample_info);
+
+                ::DDS::ReturnCode_t take_next_sample(
+                  inout EnviromentStatus_ received_data,
+                  inout ::DDS::SampleInfo sample_info);
+
+                ::DDS::ReturnCode_t read_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_next_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take_next_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_next_instance_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t take_next_instance_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t return_loan(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq);
+
+                ::DDS::ReturnCode_t get_key_value(
+                  inout EnviromentStatus_ key_holder,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::InstanceHandle_t lookup_instance(
+                  in EnviromentStatus_ instance);
+
+            };
+
+            local interface EnviromentStatus_DataReaderView : ::DDS::DataReaderView {
+                ::DDS::ReturnCode_t read(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t take_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t read_next_sample(
+                  inout EnviromentStatus_ received_data,
+                  inout ::DDS::SampleInfo sample_info);
+
+                ::DDS::ReturnCode_t take_next_sample(
+                  inout EnviromentStatus_ received_data,
+                  inout ::DDS::SampleInfo sample_info);
+
+                ::DDS::ReturnCode_t read_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_next_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t take_next_instance(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::SampleStateMask sample_states,
+                  in ::DDS::ViewStateMask view_states,
+                  in ::DDS::InstanceStateMask instance_states);
+
+                ::DDS::ReturnCode_t read_next_instance_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t take_next_instance_w_condition(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq,
+                  in long max_samples,
+                  in ::DDS::InstanceHandle_t a_handle,
+                  in ::DDS::ReadCondition a_condition);
+
+                ::DDS::ReturnCode_t return_loan(
+                  inout EnviromentStatus_Seq received_data,
+                  inout ::DDS::SampleInfoSeq info_seq);
+
+                ::DDS::ReturnCode_t get_key_value(
+                  inout EnviromentStatus_ key_holder,
+                  in ::DDS::InstanceHandle_t handle);
+
+                ::DDS::InstanceHandle_t lookup_instance(
+                  in EnviromentStatus_ instance);
+            };
+        };
+
+    };
+
+};
+
+#endif
